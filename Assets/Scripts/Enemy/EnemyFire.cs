@@ -10,7 +10,7 @@ public class EnemyFire : MonoBehaviour
 
     bool playerDetected;
 
-    float detectionDistance = 3f;
+    float detectionDistance = 8f;
     float timeOfNextPlayerCheck;
     float checkInterval = 2;
 
@@ -37,27 +37,43 @@ public class EnemyFire : MonoBehaviour
 
     private void PlayerCheck()
     {
+        print("player check");
         currentPos = new Vector2(transform.position.x, transform.position.y);
         RaycastHit2D[] hit = Physics2D.RaycastAll(currentPos, -transform.right, detectionDistance);
 
-        for (int i = 0; i < hit.Length; i++)
+        Debug.Log(hit.Length);
+
+        if (hit.Length > 0)
         {
-            if (hit[i].collider.CompareTag("Player"))
+            for (int i = 0; i < hit.Length; i++)
             {
-                Fire();
-                playerDetected = true;
+                if (hit[i].collider.CompareTag("Player"))
+                {
+                    Fire();
+                    playerDetected = true;
+                    print("player detected.");
+                    return;
+                }
+                else
+                {
+                    playerDetected = false;
+                    print("player no longer detected.");
+                    //TODO MOVE 
+                }
             }
-            else
-            {
-                playerDetected = false;
-            }
+        }
+        else 
+        {
+            playerDetected = false;
+            print("player no longer detected.");
+            //TODO MOVE 
         }
     }
     void Fire()
     {
         if (Time.time > timeOfNextFire)
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, 90));
             timeOfNextFire = Time.time + cooldownTime;
         }
     }
