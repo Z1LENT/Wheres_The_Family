@@ -5,19 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement")]
-    public float speed = 5f;
-    public float acceleration = 16f;
-    public float deacceleration = 5f;
+    public float speed = 7f;
+    public float acceleration = 10f;
+    public float deacceleration = 10f;
 
     internal float horizontal;
     internal float velocityX;
 
     [Header("Jump")]
-    public float jumpingPower = 8f;
+    public float jumpingPower = 400f;
     public float groundCheckDistance = 0.1f;
-
-    int maxJumps = 2;
-    int currentJumps = 0;
 
     float groundCheckLenght;
 
@@ -63,11 +60,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 8;
+            speed = 10;
         }
         else
         {
-            speed = 5;
+            speed = 7;
 
         }
 
@@ -86,25 +83,14 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetButtonDown("Jump") && currentJumps < maxJumps)
+        if (onGround && Input.GetButtonDown("Jump"))
         {
-            currentJumps++;
-            var velocity = rb.velocity;
-            velocity.y = jumpingPower;
-            rb.velocity = velocity;
+            rb.AddForce(new Vector2(0f, jumpingPower));
             onGround = false;
             return;
         }
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.25f);
-        }
-
         onGround = Physics2D.Raycast(transform.position, Vector2.down, groundCheckLenght);
-
-        if (onGround)
-            currentJumps = 0;
     }
 
 }
