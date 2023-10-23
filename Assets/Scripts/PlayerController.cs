@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     public float speed = 5f;
     public float acceleration = 16f;
-    public float deacceleration = 4f;
+    public float deacceleration = 5f;
 
     internal float horizontal;
     internal float velocityX;
