@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,17 +14,15 @@ public class PlayerController : MonoBehaviour
     internal float velocityX;
 
     [Header("Jump")]
-    public float jumpingPower = 400f;
+    public float jumpHeight = 4.9f;
+    public float downGravity = 2.5f;
+    public float airAcceleration = 44f;
+    public float airControl = 70f;
+    public float airBrake = 19f;
     public float groundCheckDistance = 0.1f;
 
     float groundCheckLenght;
-
-    bool onGround = true;
-
-
-    [Header("Dash")]
-
-    [Header("WallJumping & WallSliding")]
+    bool isJumping = false;
 
     Rigidbody2D rb;
 
@@ -44,14 +43,28 @@ public class PlayerController : MonoBehaviour
         Jump();
 
         GravityAdjust();
+
+        if (onGround)
+        {
+            isJumping = false;
+        }
     }
 
     private void Movement()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        velocityX += horizontal * acceleration * Time.deltaTime;
-        velocityX = Mathf.Clamp(velocityX, -speed, speed);
+        if (onGround)
+        {
+            velocityX += horizontal * acceleration * Time.deltaTime;
+            velocityX = Mathf.Clamp(velocityX, -speed, speed);
+        }
+        else
+        {
+            float airAcce1 = isJumping ? airAcceleration : airBrake;
+            velocityX = Mathf.MoveTowards(velocityX, horizontal * speed, airAcce1 * Time.deltaTime);
+        }
+        
 
         if (horizontal == 0 || (horizontal < 0 == velocityX > 0))
         {
@@ -75,22 +88,26 @@ public class PlayerController : MonoBehaviour
     {
         if (rb.velocity.y < 0)
         {
-            rb.gravityScale = 4;
+            rb.gravityScale = downGravity;
         }
         else
-            rb.gravityScale = 1;
+            rb.gravityScale = 2f;
     }
 
     private void Jump()
     {
         if (onGround && Input.GetButtonDown("Jump"))
         {
-            rb.AddForce(new Vector2(0f, jumpingPower));
-            onGround = false;
-            return;
+            float jumpVelocity = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
+            rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
+            isJumping = true;
         }
-
-        onGround = Physics2D.Raycast(transform.position, Vector2.down, groundCheckLenght);
     }
 
+    bool onGround = true;
+
+    private void FixedUpdate()
+    {
+        onGround = Physics2D.Raycast(transform.position, Vector2.down, groundCheckLenght);
+    }
 }
