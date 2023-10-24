@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class EnemyFire : MonoBehaviour
 {
-    //TODO check default facing direction. assumes it is on the left atm.
     //TODO add delay before firing, add delay before re-entering patrol.
 
-    Vector2 currentPos;
     Vector2 raycastDirection;
 
     public bool playerDetected;
 
     float detectionDistance = 8f;
-    float timeOfNextPlayerCheck;
-    float checkInterval = 2;
+
 
     float timeOfNextFire;
     float cooldownTime = 2;
