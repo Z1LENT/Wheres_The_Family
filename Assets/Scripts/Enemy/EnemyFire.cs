@@ -43,7 +43,6 @@ public class EnemyFire : MonoBehaviour
         raycastDirection = enemyPatrol.dir * transform.right;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, raycastDirection, detectionDistance);
 
-
         if (hit.Length > 0)
         {
             for (int i = 0; i < hit.Length; i++)
