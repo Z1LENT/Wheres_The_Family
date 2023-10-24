@@ -1,42 +1,48 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyPatrol : MonoBehaviour
 {
     float distance = 3;
     float speed = 2;
     
-    float dir = 1f;
+    public float dir = 1f;
     float pointA, pointB;
     bool move;
 
     Rigidbody2D rb2d;
-
-
+    EnemyFire enemyFire;
+    SpriteRenderer spriteRenderer;
     void Start()
     {
         pointA = transform.position.x + -distance;
         pointB = transform.position.x + distance;
 
         rb2d = GetComponent<Rigidbody2D>();
+        enemyFire = GetComponent<EnemyFire>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         StartCoroutine(RandomMove());
     }
     void Update()
     {
-        if (move)
+        if (!enemyFire.playerDetected)
         {
-            rb2d.velocity = new Vector2(speed * dir, rb2d.velocity.y);
+            if (move)
+            {
+                rb2d.velocity = new Vector2(speed * dir, rb2d.velocity.y);
 
-            Debug.Log(pointA + " " + pointB);
-            if (transform.position.x >= pointB)
-            {
-                dir = -1;
-            }
-            if (transform.position.x <= pointA)
-            {
-                dir = 1;
+                Debug.Log(pointA + " " + pointB);
+                if (transform.position.x >= pointB)
+                {
+                    DirectionFlip(-1);
+                }
+                if (transform.position.x <= pointA)
+                {
+                    DirectionFlip(1);
+                }
             }
         }
         else
@@ -45,22 +51,27 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    private void RandomMoveDirection()
+    private void RandomDir()
     {
         if (Random.Range(0, 2) == 0)
         {
-            dir = -1;
+            DirectionFlip(-1);
         }
         else
         {
-            dir = 1;
+            DirectionFlip(1);
         }
     }
 
+    private void DirectionFlip(float value)
+    {
+        dir = value;
+        transform.localScale = new Vector3(1 * value, 1, 1);
+    }
     private IEnumerator RandomMove()
     {
         move = true;
-        RandomMoveDirection();
+        RandomDir();
 
         yield return new WaitForSeconds(Random.Range(0.5f, 3f));
 

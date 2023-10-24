@@ -5,41 +5,50 @@ using UnityEngine;
 public class EnemyFire : MonoBehaviour
 {
     //TODO check default facing direction. assumes it is on the left atm.
+    //TODO add delay before firing, add delay before re-entering patrol.
 
     Vector2 currentPos;
+    Vector2 raycastDirection;
 
-    bool playerDetected;
+    public bool playerDetected;
 
     float detectionDistance = 8f;
     float timeOfNextPlayerCheck;
     float checkInterval = 2;
 
     float timeOfNextFire;
-    float cooldownTime;
+    float cooldownTime = 2;
 
     public GameObject projectile;
+    EnemyPatrol enemyPatrol;
+
+    private void Start()
+    {
+        enemyPatrol = GetComponent<EnemyPatrol>();
+    }
 
     void Update()
     {
+        PlayerCheck();
+    
         if (playerDetected)
         {
-            if (Time.time > timeOfNextPlayerCheck)
-            {
-                timeOfNextPlayerCheck = Time.time + checkInterval;
-                PlayerCheck();
-            }
+            Fire();
+
+            //if (Time.time > timeOfNextPlayerCheck)
+            //{
+            //    timeOfNextPlayerCheck = Time.time + checkInterval;
+            //    PlayerCheck();
+            //}
         }
-        else
-        {
-            PlayerCheck();
-        }
+        
     }
 
     private void PlayerCheck()
     {
         print("player check");
-        currentPos = new Vector2(transform.position.x, transform.position.y);
-        RaycastHit2D[] hit = Physics2D.RaycastAll(currentPos, -transform.right, detectionDistance);
+        raycastDirection = enemyPatrol.dir * transform.right;
+        RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, raycastDirection, detectionDistance);
 
         Debug.Log(hit.Length);
 
@@ -47,9 +56,8 @@ public class EnemyFire : MonoBehaviour
         {
             for (int i = 0; i < hit.Length; i++)
             {
-                if (hit[i].collider.CompareTag("Player"))
+                if (hit[i].collider.CompareTag("Player")) 
                 {
-                    Fire();
                     playerDetected = true;
                     return;
                 }
@@ -74,4 +82,14 @@ public class EnemyFire : MonoBehaviour
             timeOfNextFire = Time.time + cooldownTime;
         }
     }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, 0.2f);
+        //Gizmos.DrawWireSphere(raycastDirection * detectionDistance, 0.2f);
+
+        Gizmos.DrawRay(transform.position, raycastDirection * detectionDistance);
+    }
+    
 }
