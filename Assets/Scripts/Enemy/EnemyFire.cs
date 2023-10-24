@@ -51,13 +51,11 @@ public class EnemyFire : MonoBehaviour
                 {
                     Fire();
                     playerDetected = true;
-                    print("player detected.");
                     return;
                 }
                 else
                 {
                     playerDetected = false;
-                    print("player no longer detected.");
                     //TODO MOVE 
                 }
             }
@@ -65,7 +63,6 @@ public class EnemyFire : MonoBehaviour
         else 
         {
             playerDetected = false;
-            print("player no longer detected.");
             //TODO MOVE 
         }
     }
