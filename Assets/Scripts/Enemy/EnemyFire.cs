@@ -34,19 +34,12 @@ public class EnemyFire : MonoBehaviour
         if (playerDetected)
         {
             Fire();
-
-            //if (Time.time > timeOfNextPlayerCheck)
-            //{
-            //    timeOfNextPlayerCheck = Time.time + checkInterval;
-            //    PlayerCheck();
-            //}
         }
         
     }
 
     private void PlayerCheck()
     {
-        print("player check");
         raycastDirection = enemyPatrol.dir * transform.right;
         RaycastHit2D[] hit = Physics2D.RaycastAll(transform.position, raycastDirection, detectionDistance);
 
