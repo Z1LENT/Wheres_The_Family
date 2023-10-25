@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
 
     float groundCheckLenght;
     bool isJumping = false;
-    bool isFacingRight = true;
 
     Rigidbody2D rb;
 
@@ -120,12 +119,10 @@ public class PlayerController : MonoBehaviour
 
         if (horizontal > 0 && newScaleX != transform.localScale.x)
         {
-            isFacingRight = true;
             transform.localScale = new Vector3(newScaleX, transform.localScale.y, transform.localScale.z);
         }
         else if (horizontal < 0 && newScaleX != -transform.localScale.x)
         {
-            isFacingRight = false;
             transform.localScale = new Vector3(-newScaleX, transform.localScale.y, transform.localScale.z);
         }
     }

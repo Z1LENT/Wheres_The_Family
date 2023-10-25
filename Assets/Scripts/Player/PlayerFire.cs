@@ -14,13 +14,11 @@ public class PlayerFire : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && timer > fireRate)
+        if (Input.GetMouseButton(0) && timer <= 0f)
         {
-            timer = 0;
             Shoot();
+            timer = fireRate;
         }
-
-        timer = Time.deltaTime;
     }
 
     private void Shoot()
