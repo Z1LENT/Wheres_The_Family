@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7204039483232940822}
   - component: {fileID: 1916005852478196726}
   - component: {fileID: 8381212944568649208}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4638817124673543361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ThrowPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

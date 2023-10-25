@@ -33,7 +33,7 @@ public class EnemyAnimations : MonoBehaviour
         }
 
         //REMOVE ME !!!!
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.F8))
         {
             Hit();
         }
