@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public Transform LaunchOffset;
 
     Rigidbody2D rb;
+    [SerializeField] PlayerAnimationManager animationManager;
+
 
     private void Start()
     {
@@ -71,6 +73,9 @@ public class PlayerController : MonoBehaviour
         {
             velocityX += horizontal * acceleration * Time.deltaTime;
             velocityX = Mathf.Clamp(velocityX, -speed, speed);
+            
+            if(velocityX > 0.1 || velocityX < -0.1) { animationManager.SetAnimationToWalk(); }
+            else { animationManager.SetAnimationToIdle(); }
         }
         else
         {
@@ -114,7 +119,9 @@ public class PlayerController : MonoBehaviour
             float jumpVelocity = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
             rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
             isJumping = true;
+            animationManager.ToggleJumpAnimation(true);
         }
+        else { animationManager.ToggleJumpAnimation(false); }
     }
 
     bool onGround = true;
