@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        initialDirection = transform.right;
+        initialDirection = transform.up;
         GetComponent<Rigidbody2D>().velocity = initialDirection * speed;
         Destroy(gameObject, lifeTime);
     }
