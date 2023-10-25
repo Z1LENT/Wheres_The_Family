@@ -25,8 +25,6 @@ public class PlayerController : MonoBehaviour
     float fireRate = 1f;
     float timer;
 
-    float groundCheckLenght;
-    bool isJumping = false;
 
     public ProjectileBehavior FlowerPrefab;
     public ProjectileBehavior VasePrefab;
@@ -36,6 +34,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] PlayerAnimationManager animationManager;
 
+    float groundCheckLenght;
+    bool isJumping = false;
+    bool onGround = true;
 
     private void Start()
     {
@@ -124,7 +125,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    bool onGround = true;
 
     private void FixedUpdate()
     {
