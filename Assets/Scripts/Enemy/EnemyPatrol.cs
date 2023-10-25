@@ -14,7 +14,6 @@ public class EnemyPatrol : MonoBehaviour
 
     Rigidbody2D rb2d;
     EnemyFire enemyFire;
-    SpriteRenderer spriteRenderer;
 
     void Start()
     {
@@ -23,27 +22,22 @@ public class EnemyPatrol : MonoBehaviour
 
         rb2d = GetComponent<Rigidbody2D>();
         enemyFire = GetComponent<EnemyFire>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
- 
 
         StartCoroutine(RandomMove());
     }
     void Update()
     {
-        if (!enemyFire.playerDetected)
+        if (move)
         {
-            if (move)
-            {
-                rb2d.velocity = new Vector2(speed * dir, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(speed * dir, rb2d.velocity.y);
 
-                if (transform.position.x >= pointB)
-                {
-                    DirectionFlip(-1);
-                }
-                if (transform.position.x <= pointA)
-                {
-                    DirectionFlip(1);
-                }
+            if (transform.position.x >= pointB)
+            {
+                DirectionFlip(-1);
+            }
+            if (transform.position.x <= pointA)
+            {
+                DirectionFlip(1);
             }
         }
         else
@@ -71,8 +65,11 @@ public class EnemyPatrol : MonoBehaviour
     }
     private IEnumerator RandomMove()
     {
-        move = true;
-        RandomDir();
+        if (!enemyFire.playerDetected)
+        {
+            move = true;
+            RandomDir();
+        }
 
         yield return new WaitForSeconds(Random.Range(0.5f, 3f));
 

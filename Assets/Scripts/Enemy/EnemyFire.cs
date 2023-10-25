@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyFire : MonoBehaviour
 {
-    //TODO add delay before firing, add delay before re-entering patrol.
-
     Vector2 raycastDirection;
 
     public bool playerDetected;
@@ -19,6 +17,7 @@ public class EnemyFire : MonoBehaviour
     //float alertBubbleTime = 2;
 
     public GameObject projectile;
+    
     EnemyPatrol enemyPatrol;
     EnemyAnimations enemyAnimations;
     SpriteRenderer alertSpriteRenderer;
