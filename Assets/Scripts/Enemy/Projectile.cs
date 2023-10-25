@@ -6,10 +6,12 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 12;
     public float lifeTime = 2;
+    private Vector2 initialDirection;
 
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = transform.up * speed;
+        initialDirection = transform.right;
+        GetComponent<Rigidbody2D>().velocity = initialDirection * speed;
         Destroy(gameObject, lifeTime);
     }
 }

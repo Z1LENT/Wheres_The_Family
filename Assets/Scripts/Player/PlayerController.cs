@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
         GravityAdjust();
 
+        Flip();
+
         if (onGround)
         {
             isJumping = false;
@@ -109,5 +111,19 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         onGround = Physics2D.Raycast(transform.position, Vector2.down, groundCheckLenght);
+    }
+
+    private void Flip()
+    {
+        float newScaleX = Mathf.Abs(transform.localScale.x);
+
+        if (horizontal > 0 && newScaleX != transform.localScale.x)
+        {
+            transform.localScale = new Vector3(newScaleX, transform.localScale.y, transform.localScale.z);
+        }
+        else if (horizontal < 0 && newScaleX != -transform.localScale.x)
+        {
+            transform.localScale = new Vector3(-newScaleX, transform.localScale.y, transform.localScale.z);
+        }
     }
 }
