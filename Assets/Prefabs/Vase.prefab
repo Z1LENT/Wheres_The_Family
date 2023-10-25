@@ -161,6 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f62cff44d3348459ca5ee556ebf313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 4
+  Speed: 5
   LaunchOffset: {x: 0, y: 0}
   Thrown: 1
+  direction: {x: 1, y: 1}
+  isVase: 1
+  flowerExplosionPrefab: {fileID: 3361301025881619325, guid: 974fc114b6a0fa741a02effc8111ca7e, type: 3}

@@ -8,12 +8,13 @@ public class ProjectileBehavior : MonoBehaviour
     public Vector2 LaunchOffset;
     public bool Thrown;
 
+    public Vector2 direction = new Vector2(1, 1);
+    [SerializeField] bool isVase;
+    [SerializeField] private GameObject flowerExplosionPrefab;
     private void Start()
     {
-
         if (Thrown)
         {
-            var direction = transform.right;
             GetComponent<Rigidbody2D>().AddForce(direction * Speed, ForceMode2D.Impulse);
         }
         transform.Translate(LaunchOffset);
@@ -29,12 +30,22 @@ public class ProjectileBehavior : MonoBehaviour
         }
     }
 
-    private void OnColliderEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (isVase)
         {
-            //TODO enemy ska lukta på blomma, inte bry sig om player
+            GameObject flowerExplosion = Instantiate(flowerExplosionPrefab, transform.position, transform.rotation);
+            Destroy(flowerExplosion, 2);
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+
+            //TODO enemy ska lukta på blomma, inte bry sig om player
+        }
+
     }
+
 }

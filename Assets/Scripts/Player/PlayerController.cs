@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     float groundCheckLenght;
     bool isJumping = false;
     bool onGround = true;
+    /*[HideInInspector] */public bool facingRight;
 
     private void Start()
     {
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
         var collider = GetComponent<Collider2D>();
         groundCheckLenght = collider.bounds.size.y + groundCheckDistance;
+
+        facingRight = true;
     }
 
     private void Update()
@@ -143,7 +146,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(1) && timer <= 0f)
         {
-            Instantiate(VasePrefab, LaunchOffset.position, transform.rotation);
+            ProjectileBehavior vase = Instantiate(VasePrefab, LaunchOffset.position, transform.rotation);
+            if (!facingRight)
+            {
+                vase.direction = new Vector2(-1, 1);
+            }
             timer = fireRate;
         }
             
@@ -156,10 +163,12 @@ public class PlayerController : MonoBehaviour
         if (horizontal > 0 && newScaleX != transform.localScale.x)
         {
             transform.localScale = new Vector3(newScaleX, transform.localScale.y, transform.localScale.z);
+            facingRight = true;
         }
         else if (horizontal < 0 && newScaleX != -transform.localScale.x)
         {
             transform.localScale = new Vector3(-newScaleX, transform.localScale.y, transform.localScale.z);
+            facingRight = false;
         }
     }
 }
