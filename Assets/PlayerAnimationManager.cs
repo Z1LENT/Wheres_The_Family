@@ -10,7 +10,8 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         Idle,
         Walk,
-        Jump
+        Jump,
+        Fall
     }
     public PlayerAnimationState currentAnimationState;
 
@@ -21,32 +22,64 @@ public class PlayerAnimationManager : MonoBehaviour
 
     public void SetAnimationToIdle()
     {
-        animator.SetBool("Walk", false);
+        if(currentAnimationState == PlayerAnimationState.Fall)
+        {
+            Debug.Log("SET TO IDLE");
+            currentAnimationState = PlayerAnimationState.Idle;
+            animator.SetBool("Walk", false);
+            animator.SetBool("Jump", false);
+        }
+        if (currentAnimationState == PlayerAnimationState.Walk)
+        {
+            Debug.Log("SET TO IDLE HERE");
+            currentAnimationState = PlayerAnimationState.Idle;
+            animator.SetBool("Walk", false);
+            //animator.SetBool("Jump", false);
+        }
+
     }
     public void SetAnimationToWalk()
     {
-
-
-
-
-        if(currentAnimationState == PlayerAnimationState.Jump) { return; }
+        if(currentAnimationState != PlayerAnimationState.Idle) { return; }
         Debug.Log("WALK");
-
+        currentAnimationState = PlayerAnimationState.Walk;
         animator.SetBool("Walk", true);
     }
 
-    public void ToggleJumpAnimation(bool jump)
+    public void StartJumping()
     {
-        if (jump)
+        if (currentAnimationState != PlayerAnimationState.Jump)
         {
+            Debug.Log("start jumping");
+
             currentAnimationState = PlayerAnimationState.Jump;
+            animator.SetBool("Jump", true);
+        }
+    }
+
+    public void ToggleJumpAnimation() //called from jump animation too
+    {
+        if (currentAnimationState == PlayerAnimationState.Jump)
+        {
+            Debug.Log("Start falling");
+            currentAnimationState = PlayerAnimationState.Fall;
         }
         else
         {
-            currentAnimationState = PlayerAnimationState.Walk;
+            Debug.Log("WAS NOT JUMP");
         }
-        animator.SetBool("Jump", jump);
     }
+
+    public void LandAnimation()
+    {
+        if(currentAnimationState == PlayerAnimationState.Fall)
+        {
+            animator.SetBool("Jump", false);
+            Debug.Log("ended jumping");
+            SetAnimationToIdle();
+        }
+    }
+
 
     public void SetAnimationToKilled()
     {

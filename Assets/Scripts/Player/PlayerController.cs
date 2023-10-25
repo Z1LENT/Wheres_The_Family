@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
         if (onGround)
         {
             isJumping = false;
+            animationManager.LandAnimation();
         }
     }
 
@@ -119,9 +120,8 @@ public class PlayerController : MonoBehaviour
             float jumpVelocity = Mathf.Sqrt(2 * jumpHeight * Mathf.Abs(Physics2D.gravity.y));
             rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
             isJumping = true;
-            animationManager.ToggleJumpAnimation(true);
+            animationManager.StartJumping();
         }
-        else { animationManager.ToggleJumpAnimation(false); }
     }
 
     bool onGround = true;
