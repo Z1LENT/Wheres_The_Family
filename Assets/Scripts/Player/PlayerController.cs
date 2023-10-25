@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     float groundCheckLenght;
     bool isJumping = false;
+    bool isFacingRight = true;
 
     Rigidbody2D rb;
 
@@ -43,6 +44,8 @@ public class PlayerController : MonoBehaviour
         Jump();
 
         GravityAdjust();
+
+        Flip();
 
         if (onGround)
         {
@@ -109,5 +112,14 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         onGround = Physics2D.Raycast(transform.position, Vector2.down, groundCheckLenght);
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+
+        Vector2 newScale = transform.localScale;
+        newScale.x *= -1;
+        transform.localScale = newScale;
     }
 }
