@@ -5,9 +5,10 @@ using UnityEngine.UIElements;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    float distance = 3;
-    float speed = 2;
-    
+    public float patrolDistance = 3;
+    public float speed = 2;
+
+    [HideInInspector] 
     public float dir = 1f;
     float pointA, pointB;
     bool move;
@@ -17,8 +18,8 @@ public class EnemyPatrol : MonoBehaviour
 
     void Start()
     {
-        pointA = transform.position.x + -distance;
-        pointB = transform.position.x + distance;
+        pointA = transform.position.x + -patrolDistance;
+        pointB = transform.position.x + patrolDistance;
 
         rb2d = GetComponent<Rigidbody2D>();
         enemyFire = GetComponent<EnemyFire>();

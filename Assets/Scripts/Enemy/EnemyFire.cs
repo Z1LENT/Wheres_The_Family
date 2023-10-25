@@ -20,15 +20,15 @@ public class EnemyFire : MonoBehaviour
     
     EnemyPatrol enemyPatrol;
     EnemyAnimations enemyAnimations;
-    SpriteRenderer alertSpriteRenderer;
+    SpriteRenderer bubbleSpriteRenderer;
 
     void Start()
     {
         enemyPatrol = GetComponent<EnemyPatrol>();
         enemyAnimations = GetComponent<EnemyAnimations>();
 
-        Transform childTransform = transform.Find("Alert");
-        alertSpriteRenderer = childTransform.GetComponent<SpriteRenderer>();
+        Transform childTransform = transform.Find("Bubble");
+        bubbleSpriteRenderer = childTransform.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -38,11 +38,11 @@ public class EnemyFire : MonoBehaviour
         if (playerDetected)
         {
             Fire();
-            alertSpriteRenderer.enabled = true;
+            bubbleSpriteRenderer.enabled = true;
         }
         else
         {
-            alertSpriteRenderer.enabled = false;
+            bubbleSpriteRenderer.enabled = false;
         }
 
         previousDetectionState = playerDetected;

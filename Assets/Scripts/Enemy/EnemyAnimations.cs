@@ -7,10 +7,18 @@ public class EnemyAnimations : MonoBehaviour
 {
     Rigidbody2D rb2d;
     Animator animator;
+    Animator bubbleAnimator;
+    SpriteRenderer bubbleSpriteRenderer;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        Transform childTransform = transform.Find("Bubble");
+
+        bubbleSpriteRenderer = childTransform.GetComponent<SpriteRenderer>();
+        bubbleAnimator = childTransform.GetComponent<Animator>();
     }
 
     void Update()
@@ -24,10 +32,10 @@ public class EnemyAnimations : MonoBehaviour
             animator.SetBool("Walking", false);
         }
 
+        //REMOVE ME !!!!
         if (Input.GetKeyDown(KeyCode.P))
         {
             Hit();
-            
         }
     }
 
@@ -38,8 +46,11 @@ public class EnemyAnimations : MonoBehaviour
 
     public void Hit()
     {
-        animator.SetTrigger("Hit");
         FindObjectOfType<EnemyFire>().enabled = false;
         FindObjectOfType<EnemyPatrol>().enabled = false;
+        
+        animator.SetTrigger("Hit");
+        bubbleSpriteRenderer.enabled = true;
+        bubbleAnimator.Play("FlowerBubble");
     }
 }
