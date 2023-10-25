@@ -116,10 +116,17 @@ public class PlayerController : MonoBehaviour
 
     private void Flip()
     {
-        isFacingRight = !isFacingRight;
+        float newScaleX = Mathf.Abs(transform.localScale.x);
 
-        Vector2 newScale = transform.localScale;
-        newScale.x *= -1;
-        transform.localScale = newScale;
+        if (horizontal > 0 && newScaleX != transform.localScale.x)
+        {
+            isFacingRight = true;
+            transform.localScale = new Vector3(newScaleX, transform.localScale.y, transform.localScale.z);
+        }
+        else if (horizontal < 0 && newScaleX != -transform.localScale.x)
+        {
+            isFacingRight = false;
+            transform.localScale = new Vector3(-newScaleX, transform.localScale.y, transform.localScale.z);
+        }
     }
 }
