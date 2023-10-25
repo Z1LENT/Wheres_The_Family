@@ -15,6 +15,7 @@ public class EnemyFire : MonoBehaviour
     float cooldownTime = 2;
     float timeOfNextFire;
     float initialWaitTime = 1f;
+    float exitDetectionTime = 1.5f;
     //float alertBubbleTime = 2;
 
     public GameObject projectile;
@@ -64,13 +65,13 @@ public class EnemyFire : MonoBehaviour
                 }
                 else
                 {
-                    playerDetected = false;
+                    StartCoroutine(ExitDetectionState());
                 }
             }
         }
         else 
         {
-            playerDetected = false;
+            StartCoroutine(ExitDetectionState());
         }
     }
 
@@ -89,7 +90,13 @@ public class EnemyFire : MonoBehaviour
             enemyAnimations.Fire();
         }
     }
-    
+
+    IEnumerator ExitDetectionState()
+    {
+        yield return new WaitForSeconds(exitDetectionTime);
+        playerDetected = false;
+    }
+
     //IEnumerator AlertBubble()
     //{
     //    alertSpriteRenderer.enabled = true;
