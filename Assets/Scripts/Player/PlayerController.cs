@@ -21,8 +21,17 @@ public class PlayerController : MonoBehaviour
     public float airBrake = 19f;
     public float groundCheckDistance = 0.1f;
 
+    [Header("Shoot")]
+    float fireRate = 1f;
+    float timer;
+
     float groundCheckLenght;
     bool isJumping = false;
+
+    public ProjectileBehavior FlowerPrefab;
+    public ProjectileBehavior VasePrefab;
+
+    public Transform LaunchOffset;
 
     Rigidbody2D rb;
 
@@ -43,6 +52,8 @@ public class PlayerController : MonoBehaviour
         Jump();
 
         GravityAdjust();
+
+        Shoot();
 
         Flip();
 
@@ -111,6 +122,24 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         onGround = Physics2D.Raycast(transform.position, Vector2.down, groundCheckLenght);
+    }
+
+    private void Shoot()
+    {
+        timer -= Time.deltaTime;
+
+        if (Input.GetMouseButtonDown(0) && timer <= 0f)
+        {
+            Instantiate(FlowerPrefab, LaunchOffset.position, transform.rotation);
+            timer = fireRate;
+        }
+
+        if (Input.GetMouseButtonDown(1) && timer <= 0f)
+        {
+            Instantiate(VasePrefab, LaunchOffset.position, transform.rotation);
+            timer = fireRate;
+        }
+            
     }
 
     private void Flip()
