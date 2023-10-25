@@ -46,24 +46,20 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         if (currentAnimationState != PlayerAnimationState.Jump)
         {
-
             currentAnimationState = PlayerAnimationState.Jump;
             animator.SetBool("Jump", true);
         }
     }
 
-    public void ToggleJumpAnimation() //called from jump animation too
+    public void StartFallAnimation() //called from jump animation too
     {
         if (currentAnimationState == PlayerAnimationState.Jump)
         {
             currentAnimationState = PlayerAnimationState.Fall;
         }
-        else
-        {
-        }
     }
 
-    public void LandAnimation()
+    public void LandAnimation() //Called when we are on the ground
     {
         if(currentAnimationState == PlayerAnimationState.Fall)
         {
