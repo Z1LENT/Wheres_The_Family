@@ -8,12 +8,13 @@ public class EnemyFire : MonoBehaviour
 
     public bool playerDetected;
     bool previousDetectionState;
+    bool alreadyExiting;
 
     float detectionDistance = 8f;
     float cooldownTime = 2;
     float timeOfNextFire;
     float initialWaitTime = 1f;
-    float exitDetectionTime = 1.5f;
+    float exitDetectionTime = 2;
     //float alertBubbleTime = 2;
 
     public GameObject projectile;
@@ -60,17 +61,19 @@ public class EnemyFire : MonoBehaviour
                 if (hit[i].collider.CompareTag("Player")) 
                 {
                     playerDetected = true;
+                    alreadyExiting = false;
                     return;
-                }
-                else
-                {
-                    StartCoroutine(ExitDetectionState());
                 }
             }
         }
-        else 
+
+        if(playerDetected)
         {
-            StartCoroutine(ExitDetectionState());
+            if (!alreadyExiting)
+            {
+                print("exiting");
+                StartCoroutine(ExitDetectionState());
+            }
         }
     }
 

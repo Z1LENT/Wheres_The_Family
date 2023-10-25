@@ -33,7 +33,7 @@ public class EnemyAnimations : MonoBehaviour
         }
 
         //REMOVE ME !!!!
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.F8))
         {
             Hit();
         }
@@ -46,8 +46,8 @@ public class EnemyAnimations : MonoBehaviour
 
     public void Hit()
     {
-        FindObjectOfType<EnemyFire>().enabled = false;
-        FindObjectOfType<EnemyPatrol>().enabled = false;
+        GetComponent<EnemyFire>().enabled = false;
+        GetComponent<EnemyPatrol>().enabled = false;
         
         animator.SetTrigger("Hit");
         bubbleSpriteRenderer.enabled = true;
