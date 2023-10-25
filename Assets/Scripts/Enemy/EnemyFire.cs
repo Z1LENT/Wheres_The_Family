@@ -9,19 +9,26 @@ public class EnemyFire : MonoBehaviour
     Vector2 raycastDirection;
 
     public bool playerDetected;
+    bool previousDetectionState;
 
     float detectionDistance = 8f;
-
-
-    float timeOfNextFire;
     float cooldownTime = 2;
+    float timeOfNextFire;
+    float initialWaitTime = 1f;
+    //float alertBubbleTime = 2;
 
     public GameObject projectile;
     EnemyPatrol enemyPatrol;
+    EnemyAnimations enemyAnimations;
+    SpriteRenderer alertSpriteRenderer;
 
-    private void Start()
+    void Start()
     {
         enemyPatrol = GetComponent<EnemyPatrol>();
+        enemyAnimations = GetComponent<EnemyAnimations>();
+
+        Transform childTransform = transform.Find("Alert");
+        alertSpriteRenderer = childTransform.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -31,8 +38,14 @@ public class EnemyFire : MonoBehaviour
         if (playerDetected)
         {
             Fire();
+            alertSpriteRenderer.enabled = true;
         }
-        
+        else
+        {
+            alertSpriteRenderer.enabled = false;
+        }
+
+        previousDetectionState = playerDetected;
     }
 
     private void PlayerCheck()
@@ -52,31 +65,41 @@ public class EnemyFire : MonoBehaviour
                 else
                 {
                     playerDetected = false;
-                    //TODO MOVE 
                 }
             }
         }
         else 
         {
             playerDetected = false;
-            //TODO MOVE 
         }
     }
+
     void Fire()
     {
+        if (previousDetectionState != playerDetected)
+        {
+            timeOfNextFire = Time.time + initialWaitTime;
+            //StartCoroutine(AlertBubble());
+        }
+
         if (Time.time > timeOfNextFire)
         {
-            Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, 90));
+            Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, -90 * enemyPatrol.dir));
             timeOfNextFire = Time.time + cooldownTime;
+            enemyAnimations.Fire();
         }
     }
     
+    //IEnumerator AlertBubble()
+    //{
+    //    alertSpriteRenderer.enabled = true;
+    //    yield return new WaitForSeconds(alertBubbleTime);
+    //    alertSpriteRenderer.enabled = false;
+    //}
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        //Gizmos.DrawWireSphere(transform.position, 0.2f);
-        //Gizmos.DrawWireSphere(raycastDirection * detectionDistance, 0.2f);
-
         Gizmos.DrawRay(transform.position, raycastDirection * detectionDistance);
     }
     

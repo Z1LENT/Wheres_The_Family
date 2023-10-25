@@ -15,6 +15,7 @@ public class EnemyPatrol : MonoBehaviour
     Rigidbody2D rb2d;
     EnemyFire enemyFire;
     SpriteRenderer spriteRenderer;
+
     void Start()
     {
         pointA = transform.position.x + -distance;
@@ -23,6 +24,7 @@ public class EnemyPatrol : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         enemyFire = GetComponent<EnemyFire>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+ 
 
         StartCoroutine(RandomMove());
     }
@@ -34,7 +36,6 @@ public class EnemyPatrol : MonoBehaviour
             {
                 rb2d.velocity = new Vector2(speed * dir, rb2d.velocity.y);
 
-                Debug.Log(pointA + " " + pointB);
                 if (transform.position.x >= pointB)
                 {
                     DirectionFlip(-1);
