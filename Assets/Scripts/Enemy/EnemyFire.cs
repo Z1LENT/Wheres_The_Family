@@ -21,29 +21,27 @@ public class EnemyFire : MonoBehaviour
     
     EnemyPatrol enemyPatrol;
     EnemyAnimations enemyAnimations;
-    SpriteRenderer bubbleSpriteRenderer;
+    public SpriteRenderer alertBubbleSpriteRenderer;
 
     void Start()
     {
         enemyPatrol = GetComponent<EnemyPatrol>();
         enemyAnimations = GetComponent<EnemyAnimations>();
-
-        Transform childTransform = transform.Find("Bubble");
-        bubbleSpriteRenderer = childTransform.GetComponent<SpriteRenderer>();
+        alertBubbleSpriteRenderer.enabled = false;
     }
 
     void Update()
     {
         PlayerCheck();
-    
-        if (playerDetected)
+        
+        if (playerDetected && enemyPatrol.currentPatrolMode == EnemyPatrol.PatrolMode.Hostile)
         {
             Fire();
-            bubbleSpriteRenderer.enabled = true;
+            alertBubbleSpriteRenderer.enabled = true;
         }
         else
         {
-            bubbleSpriteRenderer.enabled = false;
+            alertBubbleSpriteRenderer.enabled = false;
         }
 
         previousDetectionState = playerDetected;

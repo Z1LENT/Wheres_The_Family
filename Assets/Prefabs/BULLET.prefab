@@ -14,8 +14,13 @@ GameObject:
   - component: {fileID: 5896771541249401690}
   - component: {fileID: 1829864164530316233}
   m_Layer: 0
+<<<<<<< Updated upstream:Assets/Prefabs/BULLET.prefab
   m_Name: BULLET
   m_TagString: Untagged
+=======
+  m_Name: tempBullet 1
+  m_TagString: EnemyBullet
+>>>>>>> Stashed changes:Assets/Prefabs/tempBullet 1.prefab
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

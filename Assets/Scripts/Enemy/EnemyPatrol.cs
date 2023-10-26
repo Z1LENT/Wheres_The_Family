@@ -16,8 +16,20 @@ public class EnemyPatrol : MonoBehaviour
     Rigidbody2D rb2d;
     EnemyFire enemyFire;
 
+    public SpriteRenderer heartBubbleSpriteRenderer;
+
+
+    public enum PatrolMode
+    {
+        Hostile,
+        Peaceful
+    }
+    public PatrolMode currentPatrolMode;
+
     void Start()
     {
+        currentPatrolMode = PatrolMode.Hostile;
+
         pointA = transform.position.x + -patrolDistance;
         pointB = transform.position.x + patrolDistance;
 
@@ -89,4 +101,16 @@ public class EnemyPatrol : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector2(pointA, transform.position.y), 0.1f);
         Gizmos.DrawWireSphere(new Vector2(pointB, transform.position.y), 0.1f);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "FlowerExpslosion")
+        {
+            Debug.Log("HIT ENEMY");
+            currentPatrolMode = PatrolMode.Peaceful;
+            heartBubbleSpriteRenderer.enabled = true;
+
+        }
+    }
+
 }
