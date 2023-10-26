@@ -24,7 +24,6 @@ public class EnemyFire : MonoBehaviour
     EnemyPatrol enemyPatrol;
     EnemyAnimations enemyAnimations;
     EnemyAudio enemyAudio;
-    SpriteRenderer bubbleSpriteRenderer;
 
     public SpriteRenderer alertBubbleSpriteRenderer;
 
