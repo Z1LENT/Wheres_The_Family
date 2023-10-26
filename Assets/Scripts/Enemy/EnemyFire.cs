@@ -96,14 +96,12 @@ public class EnemyFire : MonoBehaviour
             if (enemyPatrol.dir == 1)
             {
                 Instantiate(projectile, bulletSpawnPoint.transform.position, Quaternion.Euler(0, 0, 0));
-                GameObject newExplosion = Instantiate(explosion, bulletSpawnPoint.transform.position, Quaternion.identity);
-                Destroy(newExplosion, 0.1f);
+                Instantiate(explosion, bulletSpawnPoint.transform.position, Quaternion.identity);
             }
             else
             {
                 Instantiate(projectile, bulletSpawnPoint.transform.position, Quaternion.Euler(0, 0, -180));
-                GameObject newExplosion = Instantiate(explosion, bulletSpawnPoint.transform.position, Quaternion.identity);
-                Destroy(newExplosion, 0.1f);
+                Instantiate(explosion, bulletSpawnPoint.transform.position, Quaternion.identity);
             }
             timeOfNextFire = Time.time + cooldownTime;
             enemyAnimations.Fire();
