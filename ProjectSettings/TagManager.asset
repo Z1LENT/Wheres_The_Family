@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - FlowerExpslosion
   - HealthBar
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

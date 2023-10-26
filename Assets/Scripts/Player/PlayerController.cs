@@ -140,7 +140,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && timer <= 0f)
         {
-            Instantiate(FlowerPrefab, LaunchOffset.position, transform.rotation);
+            ProjectileBehavior flower = Instantiate(FlowerPrefab, LaunchOffset.position, transform.rotation);
+            if (!facingRight)
+            {
+                flower.direction = new Vector2(-1, 1);
+            }
             timer = fireRate;
         }
 
