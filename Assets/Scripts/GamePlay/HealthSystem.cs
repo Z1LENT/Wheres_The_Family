@@ -12,6 +12,7 @@ public class HealthSystem : MonoBehaviour
     //private Image HealthBar;
 
     public RawImage[] healthIcons;
+    public PlayerAnimationManager animationManager;
 
     public void Start()
     {
@@ -39,6 +40,10 @@ public class HealthSystem : MonoBehaviour
             if (currentHealth < 0)
             {
                 Death();
+            }
+            else
+            {
+                animationManager.SetAnimationToStartHurt();
             }
         }
 

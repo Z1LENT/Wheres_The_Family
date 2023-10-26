@@ -11,7 +11,10 @@ public class PlayerAnimationManager : MonoBehaviour
         Idle,
         Walk,
         Jump,
-        Fall
+        Fall,
+        StartHurt,
+        EndHurt,
+        Killed
     }
     public PlayerAnimationState currentAnimationState;
 
@@ -32,6 +35,14 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             currentAnimationState = PlayerAnimationState.Idle;
             animator.SetBool("Walk", false);
+        }
+        if(currentAnimationState == PlayerAnimationState.EndHurt)
+        {
+            Debug.Log("HERE");
+            currentAnimationState = PlayerAnimationState.Idle;
+            animator.SetBool("Walk", false);
+            animator.SetBool("Jump", false);
+            animator.SetBool("Hurt", false);
         }
 
     }
@@ -68,10 +79,18 @@ public class PlayerAnimationManager : MonoBehaviour
         }
     }
 
-
     public void SetAnimationToKilled()
     {
+        currentAnimationState = PlayerAnimationState.Killed;
         animator.SetBool("Killed", true);
     }
-
+    public void SetAnimationToStartHurt()
+    {
+        currentAnimationState = PlayerAnimationState.StartHurt;
+        animator.SetBool("Hurt", true);
+    }
+    public void SetAnimationToEndHurt()
+    {
+        currentAnimationState = PlayerAnimationState.EndHurt;
+    }
 }
