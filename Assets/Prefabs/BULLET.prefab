@@ -163,4 +163,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 14
   lifeTime: 2
-  playerHit: {fileID: 0}

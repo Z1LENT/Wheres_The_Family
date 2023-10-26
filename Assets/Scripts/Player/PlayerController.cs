@@ -22,8 +22,10 @@ public class PlayerController : MonoBehaviour
     public float groundCheckDistance = 0.1f;
 
     [Header("Shoot")]
-    float fireRate = 1f;
-    float timer;
+    float flowerFireRate = 0.5f;
+    float flowerTimer;
+    float vaseFireRate = 1.5f;
+    float vaseTimer;
 
 
     public ProjectileBehavior FlowerPrefab;
@@ -38,9 +40,13 @@ public class PlayerController : MonoBehaviour
     bool isJumping = false;
     bool onGround = true;
     /*[HideInInspector] */public bool facingRight;
+    int fallAnimationCounter;
 
     private void Start()
     {
+        hasVase = true;
+        animationManager.SetVase(true);
+
         Physics2D.queriesStartInColliders = false;
 
         rb = GetComponent<Rigidbody2D>();
@@ -81,6 +87,12 @@ public class PlayerController : MonoBehaviour
             
             if(velocityX > 0.1 || velocityX < -0.1) { animationManager.SetAnimationToWalk(); }
             else { animationManager.SetAnimationToIdle(); }
+
+            if(fallAnimationCounter > 20)
+            {
+                animationManager.currentAnimationState = PlayerAnimationManager.PlayerAnimationState.Idle;
+                fallAnimationCounter = 0;
+            }
         }
         else
         {
@@ -88,7 +100,6 @@ public class PlayerController : MonoBehaviour
             velocityX = Mathf.MoveTowards(velocityX, horizontal * speed, airAcce1 * Time.deltaTime);
         }
         
-
         if (horizontal == 0 || (horizontal < 0 == velocityX > 0))
         {
             velocityX *= 1 - deacceleration * Time.deltaTime;
@@ -128,36 +139,48 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     private void FixedUpdate()
     {
         onGround = Physics2D.Raycast(transform.position, Vector2.down, groundCheckLenght);
     }
 
+    public bool hasVase;
+
     private void Shoot()
     {
-        timer -= Time.deltaTime;
+        flowerTimer -= Time.deltaTime;
+        vaseTimer -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0) && timer <= 0f)
+        //flower
+        if (Input.GetMouseButtonDown(0) && flowerTimer <= 0f && hasVase)
         {
             ProjectileBehavior flower = Instantiate(FlowerPrefab, LaunchOffset.position, transform.rotation);
             if (!facingRight)
             {
                 flower.direction = new Vector2(-flower.direction.x, flower.direction.y);
             }
-            timer = fireRate;
+            flowerTimer = flowerFireRate;
+
         }
 
-        if (Input.GetMouseButtonDown(1) && timer <= 0f)
+        if (Input.GetMouseButtonDown(1) && vaseTimer <= 0f)
         {
             ProjectileBehavior vase = Instantiate(VasePrefab, LaunchOffset.position, transform.rotation);
             if (!facingRight)
             {
                 vase.direction = new Vector2(-1, 1);
             }
-            timer = fireRate;
+            vaseTimer = vaseFireRate;
+            hasVase = false;
+            animationManager.SetVase(false);
         }
-            
+
+        if(vaseTimer <= 0)
+        {
+            hasVase = true;
+            animationManager.SetVase(true);
+        }
+
     }
 
     private void Flip()
@@ -186,5 +209,10 @@ public class PlayerController : MonoBehaviour
 
             rb.velocity = new Vector2(knockbackDirection.x * knockbackForce, rb.velocity.y);
         }
+    }
+
+    public void IncreaseFallCounter()
+    {
+        fallAnimationCounter++;
     }
 }

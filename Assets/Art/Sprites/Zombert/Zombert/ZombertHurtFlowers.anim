@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ZombertMidJumpNoFlowers
+  m_Name: ZombertHurtFlowers
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,21 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1121960499, guid: 8bb4618be995429418cab46c3154a63c, type: 3}
+      value: {fileID: -2052749423, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - time: 0.083333336
+      value: {fileID: -1841907732, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - time: 0.16666667
+      value: {fileID: -63371724, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - time: 0.25
+      value: {fileID: 272055129, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - time: 0.33333334
+      value: {fileID: 1121960499, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - time: 0.41666666
+      value: {fileID: -1111183701, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - time: 0.5
+      value: {fileID: -195372029, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - time: 0.5833333
+      value: {fileID: 1429798019, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,13 +58,20 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1121960499, guid: 8bb4618be995429418cab46c3154a63c, type: 3}
+    - {fileID: -2052749423, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - {fileID: -1841907732, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - {fileID: -63371724, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - {fileID: 272055129, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - {fileID: 1121960499, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - {fileID: -1111183701, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - {fileID: -195372029, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
+    - {fileID: 1429798019, guid: f3fe04e1f7f3f0c4287bc0a7ba932296, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.083333336
+    m_StopTime: 0.6666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -70,8 +91,8 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.083333336
-    functionName: IncreaseFallCounter
+  - time: 0.6666667
+    functionName: SetAnimationToEndHurt
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

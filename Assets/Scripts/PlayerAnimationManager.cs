@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimationManager : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-
+    PlayerController playerController;
     public enum PlayerAnimationState
     {
         Idle,
@@ -39,7 +39,6 @@ public class PlayerAnimationManager : MonoBehaviour
         }
         if(currentAnimationState == PlayerAnimationState.EndHurt)
         {
-            Debug.Log("HERE");
             currentAnimationState = PlayerAnimationState.Idle;
             animator.SetBool("Walk", false);
             animator.SetBool("Jump", false);
@@ -47,11 +46,11 @@ public class PlayerAnimationManager : MonoBehaviour
         }
         if (currentAnimationState == PlayerAnimationState.Climb)
         {
-            Debug.Log("HERE");
             currentAnimationState = PlayerAnimationState.Idle;
             animator.SetBool("Climb", false);
             animator.SetBool("Hurt", false);
         }
+  
     }
     public void SetAnimationToWalk()
     {
@@ -80,6 +79,7 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             animator.SetBool("Jump", false);
             currentAnimationState = PlayerAnimationState.Idle;
+            
         }
     }
 
@@ -94,7 +94,6 @@ public class PlayerAnimationManager : MonoBehaviour
 
     public void SetAnimationToKilled()
     {
-        
         currentAnimationState = PlayerAnimationState.Killed;
         animator.SetBool("Killed", true);
     }
@@ -117,4 +116,11 @@ public class PlayerAnimationManager : MonoBehaviour
 
         currentAnimationState = PlayerAnimationState.Climb;
     }
+
+    public void SetVase(bool vaseState)
+    {
+        animator.SetBool("HasVase", vaseState);
+    }
+
+
 }
