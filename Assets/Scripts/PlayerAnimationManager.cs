@@ -48,9 +48,14 @@ public class PlayerAnimationManager : MonoBehaviour
     }
     public void SetAnimationToWalk()
     {
-        if(currentAnimationState != PlayerAnimationState.Idle) { return; }
-        currentAnimationState = PlayerAnimationState.Walk;
-        animator.SetBool("Walk", true);
+        if(currentAnimationState == PlayerAnimationState.Idle || currentAnimationState == PlayerAnimationState.EndHurt) 
+        {
+            currentAnimationState = PlayerAnimationState.Walk;
+            animator.SetBool("Walk", true);
+            animator.SetBool("Hurt", false);
+        }
+
+
     }
 
     public void StartJumping()

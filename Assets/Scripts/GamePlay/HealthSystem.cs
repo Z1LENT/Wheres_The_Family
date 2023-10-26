@@ -38,7 +38,7 @@ public class HealthSystem : MonoBehaviour
         {
             currentHealth -= DamageAmount;
 
-            if (currentHealth < 0)
+            if (currentHealth <= 0)
             {
                 Death();
             }
