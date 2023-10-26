@@ -71,7 +71,6 @@ public class EnemyFire : MonoBehaviour
         {
             if (!alreadyExiting)
             {
-                print("exiting");
                 StartCoroutine(ExitDetectionState());
             }
         }
