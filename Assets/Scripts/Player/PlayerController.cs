@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
             ProjectileBehavior flower = Instantiate(FlowerPrefab, LaunchOffset.position, transform.rotation);
             if (!facingRight)
             {
-                flower.direction = new Vector2(-1, 1);
+                flower.direction = new Vector2(-flower.direction.x, flower.direction.y);
             }
             timer = fireRate;
         }

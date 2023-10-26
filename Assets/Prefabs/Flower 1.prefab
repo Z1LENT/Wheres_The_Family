@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8888377110938469728}
   m_Layer: 8
   m_Name: Flower 1
-  m_TagString: Untagged
+  m_TagString: SingleFlowerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,8 +102,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0.66
+  m_AngularDrag: 0
+  m_GravityScale: 0.46
   m_Material: {fileID: 6200000, guid: a3034aeb51d6c6e45a47f658d863e3b4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -165,7 +165,7 @@ MonoBehaviour:
   Speed: 4
   LaunchOffset: {x: 0, y: 0}
   Thrown: 1
-  direction: {x: 1, y: 1}
+  direction: {x: 2.04, y: 0.36}
   isVase: 0
   flowerExplosionPrefab: {fileID: 0}
 --- !u!82 &8888377110938469728
