@@ -3327,7 +3327,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &519420029
 AudioListener:
   m_ObjectHideFlags: 0
@@ -6619,6 +6619,8 @@ MonoBehaviour:
   playerDetected: 0
   projectile: {fileID: 8214201714179654698, guid: e8712569465c5e7449393196f5317236, type: 3}
   explosion: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  alertBubbleSpriteRenderer: {fileID: 0}
 --- !u!114 &1625939544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6634,6 +6636,8 @@ MonoBehaviour:
   patrolDistance: 3
   speed: 2
   dir: 1
+  heartBubbleSpriteRenderer: {fileID: 0}
+  currentPatrolMode: 0
 --- !u!61 &1625939545
 BoxCollider2D:
   m_ObjectHideFlags: 0
