@@ -14,11 +14,6 @@ public class EnemyAnimations : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-        Transform childTransform = transform.Find("Bubble");
-
-        bubbleSpriteRenderer = childTransform.GetComponent<SpriteRenderer>();
-        bubbleAnimator = childTransform.GetComponent<Animator>();
     }
 
     void Update()

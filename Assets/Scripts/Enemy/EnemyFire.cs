@@ -26,28 +26,31 @@ public class EnemyFire : MonoBehaviour
     EnemyAudio enemyAudio;
     SpriteRenderer bubbleSpriteRenderer;
 
+    public SpriteRenderer alertBubbleSpriteRenderer;
+
     void Start()
     {
         enemyPatrol = GetComponent<EnemyPatrol>();
         enemyAnimations = GetComponent<EnemyAnimations>();
+
         enemyAudio = GetComponent<EnemyAudio>();
 
-        Transform childTransform = transform.Find("Bubble");
-        bubbleSpriteRenderer = childTransform.GetComponent<SpriteRenderer>();
+        alertBubbleSpriteRenderer.enabled = false;
+
     }
 
     void Update()
     {
         PlayerCheck();
-    
-        if (playerDetected)
+
+        if (playerDetected && enemyPatrol.currentPatrolMode == EnemyPatrol.PatrolMode.Hostile)
         {
             Fire();
-            bubbleSpriteRenderer.enabled = true;
+            alertBubbleSpriteRenderer.enabled = true;
         }
         else
         {
-            bubbleSpriteRenderer.enabled = false;
+            alertBubbleSpriteRenderer.enabled = false;
         }
 
         previousDetectionState = playerDetected;
