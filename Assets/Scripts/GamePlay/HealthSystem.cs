@@ -13,6 +13,7 @@ public class HealthSystem : MonoBehaviour
 
     public RawImage[] healthIcons;
     public PlayerAnimationManager animationManager;
+    public AudioSource hitAudio;
 
     public void Start()
     {
@@ -25,7 +26,6 @@ public class HealthSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         if(other.gameObject.tag == "EnemyBullet")
         {
             TakeDamage(1);
@@ -47,7 +47,8 @@ public class HealthSystem : MonoBehaviour
                 animationManager.SetAnimationToStartHurt();
             }
         }
-
+        
+        hitAudio.Play();
         UpdateHealthBar();
     }
 
