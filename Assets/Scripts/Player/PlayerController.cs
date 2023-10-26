@@ -175,4 +175,16 @@ public class PlayerController : MonoBehaviour
             facingRight = false;
         }
     }
+    // Försökte fixa knockback
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            Debug.Log("Player collided with SingleFlowerProjectile");
+            Vector2 knockbackDirection = (transform.position - collision.transform.position).normalized;
+            float knockbackForce = 3.0f;
+
+            rb.velocity = new Vector2(knockbackDirection.x * knockbackForce, rb.velocity.y);
+        }
+    }
 }
