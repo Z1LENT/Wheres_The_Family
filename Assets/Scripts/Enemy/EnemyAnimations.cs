@@ -48,6 +48,7 @@ public class EnemyAnimations : MonoBehaviour
     {
         GetComponent<EnemyFire>().enabled = false;
         GetComponent<EnemyPatrol>().enabled = false;
+        GetComponent<EnemyAudio>().PlayFriendly();
         
         animator.SetTrigger("Hit");
         bubbleSpriteRenderer.enabled = true;

@@ -23,12 +23,14 @@ public class EnemyFire : MonoBehaviour
     
     EnemyPatrol enemyPatrol;
     EnemyAnimations enemyAnimations;
+    EnemyAudio enemyAudio;
     SpriteRenderer bubbleSpriteRenderer;
 
     void Start()
     {
         enemyPatrol = GetComponent<EnemyPatrol>();
         enemyAnimations = GetComponent<EnemyAnimations>();
+        enemyAudio = GetComponent<EnemyAudio>();
 
         Transform childTransform = transform.Find("Bubble");
         bubbleSpriteRenderer = childTransform.GetComponent<SpriteRenderer>();
@@ -80,9 +82,10 @@ public class EnemyFire : MonoBehaviour
 
     void Fire()
     {
-        if (previousDetectionState != playerDetected)
+        if (playerDetected && previousDetectionState != playerDetected)
         {
             timeOfNextFire = Time.time + initialWaitTime;
+            enemyAudio.PlayScream();
             //StartCoroutine(AlertBubble());
         }
 
