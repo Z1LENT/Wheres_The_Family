@@ -14,6 +14,7 @@ public class HealthSystem : MonoBehaviour
     public RawImage[] healthIcons;
     public PlayerAnimationManager animationManager;
     public AudioSource hitAudio;
+    public GameObject gameOverScreen;
 
     public void Start()
     {
@@ -79,6 +80,9 @@ public class HealthSystem : MonoBehaviour
 
     public void Death()
     {
-        Destroy(gameObject);
+        animationManager.SetAnimationToKilled();
+        gameOverScreen.SetActive(true);
+        
+        //Destroy(gameObject);
     }
 }
