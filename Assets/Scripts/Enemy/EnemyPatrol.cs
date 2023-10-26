@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class EnemyPatrol : MonoBehaviour
 {
@@ -17,7 +17,12 @@ public class EnemyPatrol : MonoBehaviour
     Rigidbody2D rb2d;
     EnemyFire enemyFire;
 
-    public SpriteRenderer heartBubbleSpriteRenderer;
+
+    public Image peaceImage;
+    public float maxPeaceResistance;
+    private float currentPeaceResistance;
+
+    public GameObject bubbleCanvas;
 
     public enum PatrolMode
     {
@@ -29,6 +34,12 @@ public class EnemyPatrol : MonoBehaviour
 
     void Start()
     {
+        currentPeaceResistance = 0;
+
+
+        dir = transform.localScale.x;
+
+
         currentPatrolMode = PatrolMode.Hostile;
 
         pointA = transform.position.x + -patrolDistance;
@@ -106,13 +117,25 @@ public class EnemyPatrol : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector2(pointB, transform.position.y), 0.1f);
     }
 
+    public GameObject peaceExplosion;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "FlowerExpslosion")
         {
+            currentPeaceResistance = maxPeaceResistance;
+            GetComponent<EnemyFire>().alertBubbleSpriteRenderer.gameObject.SetActive(false);
+            bubbleCanvas.SetActive(true);
+
+            currentPatrolMode = PatrolMode.Peaceful;
+            GameObject peace = Instantiate(peaceExplosion, transform.position, Quaternion.Euler(0, 0, 0));
+            Destroy(peace, 1f);
+            peaceImage.fillAmount = currentPeaceResistance / maxPeaceResistance;
+
             Debug.Log("HIT ENEMY");
             currentPatrolMode = PatrolMode.Peaceful;
-            heartBubbleSpriteRenderer.enabled = true;
+            GameObject peace1 = Instantiate(peaceExplosion, transform.position, Quaternion.Euler(0, 0, 0));
+            Destroy(peace1, 1f);
         }
 
     }
@@ -121,9 +144,27 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (collision.gameObject.tag == "SingleFlowerProjectile")
         {
+            Destroy(collision.gameObject);
+
+            GetComponent<EnemyFire>().alertBubbleSpriteRenderer.gameObject.SetActive(false);
+
+            bubbleCanvas.SetActive(true);
+            currentPeaceResistance++;
+
+            GetComponent<EnemyFire>().alertBubbleSpriteRenderer.enabled = false;
+
+            if(currentPeaceResistance >= maxPeaceResistance)
+            {
+                GetComponent<EnemyFire>().alertBubbleSpriteRenderer.gameObject.SetActive(false);
+
+                currentPatrolMode = PatrolMode.Peaceful;
+                GameObject peace = Instantiate(peaceExplosion, transform.position, Quaternion.Euler(0, 0, 0));
+                Destroy(peace, 1f);
+            }
+
+            peaceImage.fillAmount = currentPeaceResistance / maxPeaceResistance;
+
             Debug.Log("HIT ENEMY");
-            currentPatrolMode = PatrolMode.Peaceful;
-            heartBubbleSpriteRenderer.enabled = true;
         }
     }
 }

@@ -11,7 +11,7 @@ public class EnemyFire : MonoBehaviour
     bool alreadyExiting;
 
     float detectionDistance = 8f;
-    float cooldownTime = 2;
+    float cooldownTime = 1.5f;
     float timeOfNextFire;
     float initialWaitTime = 1f;
     float exitDetectionTime = 2;
@@ -27,8 +27,12 @@ public class EnemyFire : MonoBehaviour
 
     public SpriteRenderer alertBubbleSpriteRenderer;
 
+    HealthSystem playerHealth;
+
     void Start()
     {
+        playerHealth = FindObjectOfType<HealthSystem>();
+
         enemyPatrol = GetComponent<EnemyPatrol>();
         enemyAnimations = GetComponent<EnemyAnimations>();
 
@@ -40,6 +44,8 @@ public class EnemyFire : MonoBehaviour
 
     void Update()
     {
+        if (playerHealth.dead) { return; }
+
         PlayerCheck();
 
         if (playerDetected && enemyPatrol.currentPatrolMode == EnemyPatrol.PatrolMode.Hostile)

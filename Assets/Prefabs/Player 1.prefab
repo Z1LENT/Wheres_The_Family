@@ -110,7 +110,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 6949080cc0367374fac70c5f87f0cc2b, type: 2}
+  m_Material: {fileID: 6200000, guid: 34cd4c9637599b84d99b6c08f8e7a017, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -253,6 +253,8 @@ MonoBehaviour:
   animationManager: {fileID: 1916005852478196726}
   hitAudio: {fileID: 8389895908885033780}
   gameOverScreen: {fileID: 0}
+  dead: 0
+  knockbackForce: 153
 --- !u!1 &3090425162708781280
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,8 +299,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 845435fdf2dbe51439516319bbd0b4e3, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.173
+  m_Pitch: 0.85
   Loop: 0
   Mute: 0
   Spatialize: 0

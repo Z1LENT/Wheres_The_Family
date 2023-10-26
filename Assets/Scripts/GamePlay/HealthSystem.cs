@@ -15,28 +15,40 @@ public class HealthSystem : MonoBehaviour
     public PlayerAnimationManager animationManager;
     public AudioSource hitAudio;
     public GameObject gameOverScreen;
-
+    PlayerController pc;
     public bool dead;
 
     public void Start()
     {
         //HealthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Image>();
         //if(HealthBar == null) { Debug.Log("NO HEALTHBAR"); }
-
+        pc = GetComponent<PlayerController>();
         currentHealth = maxHealth;
         UpdateHealthBar();
     }
+
+    public float knockbackForce = 2;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.tag == "EnemyBullet")
         {
             TakeDamage(1);
+
+            Vector2 difference = (transform.position - other.transform.position).normalized;
+            Vector2 force = difference * knockbackForce;
+
+            pc.velocityX += force.x;
+
+            //GetComponent<Rigidbody2D>().velocity.x = force.x; //if you don't want to take into consideration enemy's mass then use ForceMode.VelocityChange
+
         }
     }
 
     public void TakeDamage(int DamageAmount)
     {
+
+
         if (currentHealth > 0)
         {
             currentHealth -= DamageAmount;

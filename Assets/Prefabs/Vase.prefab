@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -162,12 +162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f62cff44d3348459ca5ee556ebf313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 6
   LaunchOffset: {x: 0, y: 0}
   Thrown: 1
   direction: {x: 1, y: 1}
   isVase: 1
   flowerExplosionPrefab: {fileID: 3361301025881619325, guid: 974fc114b6a0fa741a02effc8111ca7e, type: 3}
+  isFlower: 0
 --- !u!82 &4382819681279899617
 AudioSource:
   m_ObjectHideFlags: 0
@@ -180,8 +181,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 97498ed9e2b4b35419fb59a97990197f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.142
+  m_Pitch: 1.21
   Loop: 0
   Mute: 0
   Spatialize: 0

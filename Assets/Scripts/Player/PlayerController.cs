@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         if (healthSystem.dead)
         {
+            rb.velocity = new Vector2(0, rb.velocity.y);
             return;
         }
 
