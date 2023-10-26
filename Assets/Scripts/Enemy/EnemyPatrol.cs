@@ -28,17 +28,20 @@ public class EnemyPatrol : MonoBehaviour
     }
     void Update()
     {
-        if (move)
+        if (!enemyFire.playerDetected)
         {
-            rb2d.velocity = new Vector2(speed * dir, rb2d.velocity.y);
+                if (move)
+            {
+                rb2d.velocity = new Vector2(speed * dir, rb2d.velocity.y);
 
-            if (transform.position.x >= pointB)
-            {
-                DirectionFlip(-1);
-            }
-            if (transform.position.x <= pointA)
-            {
-                DirectionFlip(1);
+                if (transform.position.x >= pointB)
+                {
+                    DirectionFlip(-1);
+                }
+                if (transform.position.x <= pointA)
+                {
+                    DirectionFlip(1);
+                }
             }
         }
         else
