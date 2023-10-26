@@ -110,6 +110,10 @@ public class PlayerAnimationManager : MonoBehaviour
     public void SetAnimationToClimb()
     {
         animator.SetBool("Climb", true);
+        animator.SetBool("Hurt", false);
+        animator.SetBool("Walk", false);
+        animator.SetBool("Jump", false);
+
         currentAnimationState = PlayerAnimationState.Climb;
     }
 }
