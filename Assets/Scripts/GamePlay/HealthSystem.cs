@@ -9,12 +9,14 @@ public class HealthSystem : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
-    private Image HealthBar;
+    //private Image HealthBar;
+
+    public RawImage[] healthIcons;
 
     public void Start()
     {
-        HealthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Image>();
-        if(HealthBar == null) { Debug.Log("NO HEALTHBAR"); }
+        //HealthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Image>();
+        //if(HealthBar == null) { Debug.Log("NO HEALTHBAR"); }
 
         currentHealth = maxHealth;
         UpdateHealthBar();
@@ -25,10 +27,7 @@ public class HealthSystem : MonoBehaviour
         if(other.gameObject.tag == "EnemyBullet")
         {
             TakeDamage(1);
-
         }
-
-
     }
 
     public void TakeDamage(int DamageAmount)
@@ -48,11 +47,26 @@ public class HealthSystem : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        if (HealthBar == null) { Debug.Log("NO HEALTHBAR"); return; }
-
-        float fillAmount = (float)currentHealth / maxHealth;
-        HealthBar.fillAmount = fillAmount;
+        for (int i = 0; i < healthIcons.Length; i++)
+        {
+            if (currentHealth > i)
+            {
+                healthIcons[i].enabled = true;
+            }
+            else
+            {
+                healthIcons[i].enabled = false;
+            }
+        }
     }
+
+    //public void UpdateHealthBar()
+    //{
+    //    if (HealthBar == null) { Debug.Log("NO HEALTHBAR"); return; }
+
+    //    float fillAmount = (float)currentHealth / maxHealth;
+    //    HealthBar.fillAmount = fillAmount;
+    //}
 
     public void Death()
     {
