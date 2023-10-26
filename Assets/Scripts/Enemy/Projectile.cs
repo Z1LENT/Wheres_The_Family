@@ -14,4 +14,9 @@ public class Projectile : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = initialDirection * speed;
         Destroy(gameObject, lifeTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
+    }
 }
