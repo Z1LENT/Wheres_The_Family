@@ -9,6 +9,7 @@ TagManager:
   - FlowerExpslosion
   - HealthBar
   - EnemyBullet
+  - SingleFlowerProjectile
   layers:
   - Default
   - TransparentFX

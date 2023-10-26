@@ -10,10 +10,12 @@ public class LadderMovement : MonoBehaviour
     private bool isClimbing;
 
     Rigidbody2D rb;
+    private PlayerAnimationManager animationManager;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animationManager = GetComponent<PlayerAnimationManager>();
     }
 
     private void Update()
@@ -22,6 +24,7 @@ public class LadderMovement : MonoBehaviour
 
         if (isLadder && Mathf.Abs(vertical) > 0f)
         {
+            animationManager.SetAnimationToClimb();
             isClimbing = true;
         }
     }
@@ -51,6 +54,7 @@ public class LadderMovement : MonoBehaviour
         {
             isLadder = false;
             isClimbing = false;
+            animationManager.SetAnimationToIdle();
         }
     }
 }
