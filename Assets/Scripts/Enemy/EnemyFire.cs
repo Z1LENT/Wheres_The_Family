@@ -86,7 +86,14 @@ public class EnemyFire : MonoBehaviour
 
         if (Time.time > timeOfNextFire)
         {
-            Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, -90 * enemyPatrol.dir));
+            if (enemyPatrol.dir == 1)
+            {
+                Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, 0));
+            }
+            else
+            {
+                Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, -180));
+            }
             timeOfNextFire = Time.time + cooldownTime;
             enemyAnimations.Fire();
         }
