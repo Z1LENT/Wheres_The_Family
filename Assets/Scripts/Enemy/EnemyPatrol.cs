@@ -30,7 +30,6 @@ public class EnemyPatrol : MonoBehaviour
     {
         currentPatrolMode = PatrolMode.Hostile;
 
-
         pointA = transform.position.x + -patrolDistance;
         pointB = transform.position.x + patrolDistance;
 
@@ -43,7 +42,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (!enemyFire.playerDetected)
         {
-                if (move)
+            if (move)
             {
                 rb2d.velocity = new Vector2(speed * dir, rb2d.velocity.y);
 
@@ -89,6 +88,7 @@ public class EnemyPatrol : MonoBehaviour
         }
 
         yield return new WaitForSeconds(Random.Range(0.5f, 3f));
+        rb2d.velocity = new Vector2(0, rb2d.velocity.y);
 
         move = false;
 
