@@ -235,6 +235,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: CLINT SHOOTING-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ed0b5aa17debf4cb21f86c8939edad
+      internalID: 1295899729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CLINT SHOOTING-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18081ab20e87b8544a665b70fa6fdc4a
+      internalID: 920902758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CLINT SHOOTING-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f57b5812ccf28489253250636dad4c
+      internalID: -1985824344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CLINT SHOOTING-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca81028dc5032f46bcf363a5468a3dc
+      internalID: -1174442898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -252,6 +336,10 @@ TextureImporter:
       CLINT SHOOTING-Sheet_3: 1787533729
       CLINT SHOOTING-Sheet_4: -857376429
       CLINT SHOOTING-Sheet_5: 1458308214
+      CLINT SHOOTING-Sheet_6: 1295899729
+      CLINT SHOOTING-Sheet_7: 920902758
+      CLINT SHOOTING-Sheet_8: -1985824344
+      CLINT SHOOTING-Sheet_9: -1174442898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

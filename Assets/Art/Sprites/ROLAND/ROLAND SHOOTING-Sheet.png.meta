@@ -235,6 +235,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ROLAND SHOOTING-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d3c55e5e346fb54baac45f6ddbac670
+      internalID: 1258714392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROLAND SHOOTING-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a7c51f463de4c048be2f7b2312cd1d2
+      internalID: -1967760685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ROLAND SHOOTING-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4be248c6a7767084cbe8894e3e46787f
+      internalID: 1289245393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -252,6 +315,9 @@ TextureImporter:
       ROLAND SHOOTING-Sheet_3: -1569227919
       ROLAND SHOOTING-Sheet_4: -773331594
       ROLAND SHOOTING-Sheet_5: 1259468197
+      ROLAND SHOOTING-Sheet_6: 1258714392
+      ROLAND SHOOTING-Sheet_7: -1967760685
+      ROLAND SHOOTING-Sheet_8: 1289245393
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
