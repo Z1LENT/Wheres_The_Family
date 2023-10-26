@@ -508,6 +508,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &194350494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2922494247188213066, guid: 852d225e160777f49b572343866083d4, type: 3}
+  m_PrefabInstance: {fileID: 1988425685}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &218983895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2430,6 +2435,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 419640399096981770, guid: 852d225e160777f49b572343866083d4, type: 3}
   m_PrefabInstance: {fileID: 1988425685}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &920660577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194350494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8098a88e677b3ad45aa67db32ce9b907, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
 --- !u!1 &974921435
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,7 +3347,7 @@ GameObject:
   - component: {fileID: 1636228645}
   m_Layer: 5
   m_Name: HealthBar
-  m_TagString: Untagged
+  m_TagString: HealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4098,7 +4117,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 419640399096981770, guid: 852d225e160777f49b572343866083d4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 804594721}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2922494247188213066, guid: 852d225e160777f49b572343866083d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 920660577}
   m_SourcePrefab: {fileID: 100100000, guid: 852d225e160777f49b572343866083d4, type: 3}
 --- !u!1 &2040954879
 GameObject:
