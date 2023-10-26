@@ -18,6 +18,8 @@ public class EnemyFire : MonoBehaviour
     //float alertBubbleTime = 2;
 
     public GameObject projectile;
+    public GameObject explosion;
+    public Transform bulletSpawnPoint;
     
     EnemyPatrol enemyPatrol;
     EnemyAnimations enemyAnimations;
@@ -88,11 +90,15 @@ public class EnemyFire : MonoBehaviour
         {
             if (enemyPatrol.dir == 1)
             {
-                Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, 0));
+                Instantiate(projectile, bulletSpawnPoint.transform.position, Quaternion.Euler(0, 0, 0));
+                GameObject newExplosion = Instantiate(explosion, bulletSpawnPoint.transform.position, Quaternion.identity);
+                Destroy(newExplosion, 0.1f);
             }
             else
             {
-                Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, -180));
+                Instantiate(projectile, bulletSpawnPoint.transform.position, Quaternion.Euler(0, 0, -180));
+                GameObject newExplosion = Instantiate(explosion, bulletSpawnPoint.transform.position, Quaternion.identity);
+                Destroy(newExplosion, 0.1f);
             }
             timeOfNextFire = Time.time + cooldownTime;
             enemyAnimations.Fire();

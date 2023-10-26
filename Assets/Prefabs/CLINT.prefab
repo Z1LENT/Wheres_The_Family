@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2922156660393335079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4782101438784329643}
+  m_Layer: 7
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4782101438784329643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2922156660393335079}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.38, y: -0.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5919199923978067981}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8317750648727153756
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +203,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6783164272370249911}
+    - targetCorrespondingSourceObject: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4782101438784329643}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       insertIndex: -1
@@ -278,6 +312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDetected: 0
   projectile: {fileID: 3664297526778458042, guid: 67175b3234848b94fabd8fdf07f15196, type: 3}
+  explosion: {fileID: 8729064184661376230, guid: ad3666604a18a5c49999ce291fdd408f, type: 3}
+  bulletSpawnPoint: {fileID: 4782101438784329643}
 --- !u!114 &42363077472045287
 MonoBehaviour:
   m_ObjectHideFlags: 0
