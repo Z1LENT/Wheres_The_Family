@@ -9,19 +9,27 @@ public class HealthSystem : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
-    private Image HealthBar;
+    public Image HealthBar;
+
+    public bool isPlayer = false;
+    public bool isEnemy = false;
 
     public void Start()
     {
-        HealthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Image>();
-
+        isPlayer = CompareTag("Player");
+        isEnemy = CompareTag("Enemy");
         currentHealth = maxHealth;
         UpdateHealthBar();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "EnemyBullet")
+        if (isPlayer)
+        {
+            TakeDamage(1);
+        }
+        
+        if (isEnemy)
         {
             TakeDamage(1);
         }
@@ -39,13 +47,12 @@ public class HealthSystem : MonoBehaviour
             }
         }
 
-        UpdateHealthBar();
+        if (!isEnemy)
+            UpdateHealthBar();
     }
 
     public void UpdateHealthBar()
     {
-        if(HealthBar == null) { Debug.Log("NO HEALTHBAR IN SCENE"); return; }
-
         float fillAmount = (float)currentHealth / maxHealth;
         HealthBar.fillAmount = fillAmount;
     }

@@ -190,7 +190,6 @@ MonoBehaviour:
   VasePrefab: {fileID: 9003005556202719376, guid: 4fd3d32810342194b9b5fe251b7a9d74, type: 3}
   LaunchOffset: {fileID: 4638817124673543361}
   animationManager: {fileID: 1916005852478196726}
-  facingRight: 0
 --- !u!114 &1916005852478196726
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,9 +6,6 @@ TagManager:
   tags:
   - Ladder
   - Enemy
-  - HealthBar
-  - EnemyBullet
-  - FlowerExpslosion
   layers:
   - Default
   - TransparentFX
