@@ -54,17 +54,13 @@ public class PlayerAnimationManager : MonoBehaviour
             animator.SetBool("Walk", true);
             animator.SetBool("Hurt", false);
         }
-
-
     }
 
     public void StartJumping()
     {
-        if (currentAnimationState != PlayerAnimationState.Jump)
-        {
-            currentAnimationState = PlayerAnimationState.Jump;
-            animator.SetBool("Jump", true);
-        }
+        currentAnimationState = PlayerAnimationState.Jump;
+        animator.SetBool("Jump", true);
+
     }
 
     public void StartFallAnimation() //called from jump animation too
@@ -73,9 +69,14 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             currentAnimationState = PlayerAnimationState.Fall;
         }
+        else
+        {
+            animator.SetBool("Jump", false);
+            currentAnimationState = PlayerAnimationState.Idle;
+        }
     }
 
-    public void LandAnimation() //Called when we are on the ground
+    public void LandAnimation() //Called always when we are on the ground
     {
         if(currentAnimationState == PlayerAnimationState.Fall)
         {
