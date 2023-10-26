@@ -94,6 +94,7 @@ public class PlayerAnimationManager : MonoBehaviour
 
     public void SetAnimationToKilled()
     {
+        
         currentAnimationState = PlayerAnimationState.Killed;
         animator.SetBool("Killed", true);
     }
