@@ -234,11 +234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.821342
+      value: -47.54
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.4181492
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -387,6 +387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDetected: 0
   projectile: {fileID: 3664297526778458042, guid: 67175b3234848b94fabd8fdf07f15196, type: 3}
+  explosion: {fileID: 8729064184661376230, guid: ad3666604a18a5c49999ce291fdd408f, type: 3}
+  bulletSpawnPoint: {fileID: 5919199923978067981}
   alertBubbleSpriteRenderer: {fileID: 929852976508929879}
 --- !u!114 &42363077472045287
 MonoBehaviour:

@@ -382,6 +382,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDetected: 0
   projectile: {fileID: 3664297526778458042, guid: 67175b3234848b94fabd8fdf07f15196, type: 3}
+  explosion: {fileID: 8729064184661376230, guid: ad3666604a18a5c49999ce291fdd408f, type: 3}
+  bulletSpawnPoint: {fileID: 4555780351748419373}
   alertBubbleSpriteRenderer: {fileID: 7043658668381481952}
 --- !u!114 &8746637703690329322
 MonoBehaviour:
