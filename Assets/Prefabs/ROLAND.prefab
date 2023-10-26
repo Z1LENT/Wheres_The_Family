@@ -768,7 +768,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6949080cc0367374fac70c5f87f0cc2b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -847,7 +847,6 @@ MonoBehaviour:
   speed: 2
   doNotMove: 0
   dir: 1
-  heartBubbleSpriteRenderer: {fileID: 0}
   peaceImage: {fileID: 7801114838339386995}
   maxPeaceResistance: 3
   bubbleCanvas: {fileID: 1843124202646983077}

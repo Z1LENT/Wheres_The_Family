@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     [Header("Shoot")]
     float flowerFireRate = 0.5f;
     float flowerTimer;
-    float vaseFireRate = 1.5f;
+    float vaseFireRate = 4f;
     float vaseTimer;
 
 

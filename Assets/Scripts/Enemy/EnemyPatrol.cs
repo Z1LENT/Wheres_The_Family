@@ -123,6 +123,9 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (collision.gameObject.tag == "FlowerExpslosion")
         {
+            if (currentPatrolMode == PatrolMode.Peaceful) { return; }
+
+
             currentPeaceResistance = maxPeaceResistance;
             GetComponent<EnemyFire>().alertBubbleSpriteRenderer.gameObject.SetActive(false);
             bubbleCanvas.SetActive(true);
@@ -144,6 +147,8 @@ public class EnemyPatrol : MonoBehaviour
     {
         if (collision.gameObject.tag == "SingleFlowerProjectile")
         {
+            if (currentPatrolMode == PatrolMode.Peaceful) { return; }
+
             Destroy(collision.gameObject);
 
             GetComponent<EnemyFire>().alertBubbleSpriteRenderer.gameObject.SetActive(false);
