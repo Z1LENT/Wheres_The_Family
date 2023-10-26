@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     [SerializeField] PlayerAnimationManager animationManager;
+    HealthSystem healthSystem;
 
     float groundCheckLenght;
     bool isJumping = false;
@@ -44,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        healthSystem = GetComponent<HealthSystem>();
+
         hasVase = true;
         animationManager.SetVase(true);
 
@@ -78,6 +81,12 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
+        if (healthSystem.dead)
+        {
+            return;
+        }
+
+
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (onGround)

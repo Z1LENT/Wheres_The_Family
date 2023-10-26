@@ -26,7 +26,12 @@ public class PlayerAnimationManager : MonoBehaviour
 
     public void SetAnimationToIdle()
     {
-        if(currentAnimationState == PlayerAnimationState.Fall)
+        if (currentAnimationState == PlayerAnimationState.Killed)
+        {
+            return;
+        }
+
+        if (currentAnimationState == PlayerAnimationState.Fall)
         {
             currentAnimationState = PlayerAnimationState.Idle;
             animator.SetBool("Walk", false);
@@ -36,8 +41,10 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             currentAnimationState = PlayerAnimationState.Idle;
             animator.SetBool("Walk", false);
+            animator.SetBool("Jump", false);
+
         }
-        if(currentAnimationState == PlayerAnimationState.EndHurt)
+        if (currentAnimationState == PlayerAnimationState.EndHurt)
         {
             currentAnimationState = PlayerAnimationState.Idle;
             animator.SetBool("Walk", false);
@@ -49,8 +56,10 @@ public class PlayerAnimationManager : MonoBehaviour
             currentAnimationState = PlayerAnimationState.Idle;
             animator.SetBool("Climb", false);
             animator.SetBool("Hurt", false);
+            animator.SetBool("Jump", false);
+
         }
-  
+
     }
     public void SetAnimationToWalk()
     {
@@ -59,6 +68,8 @@ public class PlayerAnimationManager : MonoBehaviour
             currentAnimationState = PlayerAnimationState.Walk;
             animator.SetBool("Walk", true);
             animator.SetBool("Hurt", false);
+            animator.SetBool("Jump", false);
+
         }
     }
 
@@ -66,7 +77,6 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         currentAnimationState = PlayerAnimationState.Jump;
         animator.SetBool("Jump", true);
-
     }
 
     public void StartFallAnimation() //called from jump animation too
@@ -95,6 +105,10 @@ public class PlayerAnimationManager : MonoBehaviour
     public void SetAnimationToKilled()
     {
         currentAnimationState = PlayerAnimationState.Killed;
+        animator.SetBool("Jump", false);
+        animator.SetBool("Walk", false);
+        animator.SetBool("Hurt", false);
+
         animator.SetBool("Killed", true);
     }
     public void SetAnimationToStartHurt()
@@ -122,5 +136,20 @@ public class PlayerAnimationManager : MonoBehaviour
         animator.SetBool("HasVase", vaseState);
     }
 
+    public void Reset()
+    {
+        animator.SetBool("Climb", false);
+        animator.SetBool("Hurt", false);
+        animator.SetBool("Walk", false);
+        animator.SetBool("Jump", false);
+        currentAnimationState = PlayerAnimationState.Idle;
+    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Reset();
+        }
+    }
 }

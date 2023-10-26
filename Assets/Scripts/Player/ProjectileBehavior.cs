@@ -11,6 +11,9 @@ public class ProjectileBehavior : MonoBehaviour
     public Vector2 direction = new Vector2(1, 1);
     [SerializeField] bool isVase;
     [SerializeField] private GameObject flowerExplosionPrefab;
+
+    public bool isFlower;
+
     private void Start()
     {
         if (Thrown)
@@ -32,6 +35,11 @@ public class ProjectileBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isFlower)
+        {
+            GetComponent<Animator>().SetBool("idle", true);
+        }
+
         if (isVase)
         {
             GameObject flowerExplosion = Instantiate(flowerExplosionPrefab, transform.position, transform.rotation);

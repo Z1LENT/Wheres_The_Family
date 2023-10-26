@@ -16,6 +16,8 @@ public class HealthSystem : MonoBehaviour
     public AudioSource hitAudio;
     public GameObject gameOverScreen;
 
+    public bool dead;
+
     public void Start()
     {
         //HealthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Image>();
@@ -80,9 +82,15 @@ public class HealthSystem : MonoBehaviour
 
     public void Death()
     {
+        dead = true;
         animationManager.SetAnimationToKilled();
-        gameOverScreen.SetActive(true);
-        
+        StartCoroutine(nameof(DeathTime));
         //Destroy(gameObject);
+    }
+
+    IEnumerator DeathTime()
+    {
+        yield return new WaitForSeconds(0.85f);
+        gameOverScreen.SetActive(true);
     }
 }

@@ -7,6 +7,7 @@ public class EnemyPatrol : MonoBehaviour
 {
     public float patrolDistance = 3;
     public float speed = 2;
+    public bool doNotMove;
 
     [HideInInspector] 
     public float dir = 1f;
@@ -35,6 +36,8 @@ public class EnemyPatrol : MonoBehaviour
 
         rb2d = GetComponent<Rigidbody2D>();
         enemyFire = GetComponent<EnemyFire>();
+
+        if (doNotMove) { return; }
 
         StartCoroutine(RandomMove());
     }
