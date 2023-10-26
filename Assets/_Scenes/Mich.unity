@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &32207703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32207704}
+  m_Layer: 7
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &32207704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32207703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 126631237}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &85229928
 GameObject:
   m_ObjectHideFlags: 0
@@ -3862,6 +3893,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 852d225e160777f49b572343866083d4, type: 3}
+--- !u!1 &811753265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811753266}
+  m_Layer: 7
+  m_Name: BulletSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &811753266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811753265}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.108, y: 0.010999918, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1099630574}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &814976088
 GameObject:
   m_ObjectHideFlags: 0
@@ -5318,11 +5380,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.94
+      value: 2.026
       objectReference: {fileID: 0}
     - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.54
+      value: -3.567
       objectReference: {fileID: 0}
     - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5362,7 +5424,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811753266}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
 --- !u!1001 &1232608785
@@ -5383,11 +5448,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.33445
+      value: 0.918
       objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.533658
+      value: -3.556
       objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5431,7 +5496,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 32207704}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
 --- !u!1 &1350275447
@@ -6550,6 +6618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDetected: 0
   projectile: {fileID: 8214201714179654698, guid: e8712569465c5e7449393196f5317236, type: 3}
+  explosion: {fileID: 0}
 --- !u!114 &1625939544
 MonoBehaviour:
   m_ObjectHideFlags: 0
