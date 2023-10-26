@@ -53,6 +53,8 @@ public class HealthSystem : MonoBehaviour
 
     public void UpdateHealthBar()
     {
+        if(healthIcons.Length == 0) { return; }
+
         for (int i = 0; i < healthIcons.Length; i++)
         {
             if (currentHealth > i)
