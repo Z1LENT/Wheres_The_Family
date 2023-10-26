@@ -521,11 +521,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -47.54
+      value: -57.51499
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.22
+      value: 2.7356877
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -701,8 +701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18b01b96deb8324ea42d84ccd6968a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolDistance: 3
-  speed: 2
+  patrolDistance: 2
+  speed: 3
   dir: 1
   heartBubbleSpriteRenderer: {fileID: 3844047336602176647}
   currentPatrolMode: 0

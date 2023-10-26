@@ -25,6 +25,7 @@ public class HealthSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
         if(other.gameObject.tag == "EnemyBullet")
         {
             TakeDamage(1);
