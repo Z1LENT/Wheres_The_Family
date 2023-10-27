@@ -180,12 +180,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4580db996f42fe84ca288e6081508b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 5
   acceleration: 10
-  deacceleration: 10
-  jumpHeight: 4.9
-  downGravity: 2.5
-  airAcceleration: 44
+  deacceleration: 20
+  jumpHeight: 4
+  downGravity: 3
+  airAcceleration: 30
   airControl: 70
   airBrake: 19
   groundCheckDistance: 0.1
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8098a88e677b3ad45aa67db32ce9b907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 21474
+  maxHealth: 5
   currentHealth: 0
   healthIcons:
   - {fileID: 0}
@@ -254,7 +254,7 @@ MonoBehaviour:
   hitAudio: {fileID: 8389895908885033780}
   gameOverScreen: {fileID: 0}
   dead: 0
-  knockbackForce: 5
+  knockbackForce: 82.4
 --- !u!1 &3090425162708781280
 GameObject:
   m_ObjectHideFlags: 0

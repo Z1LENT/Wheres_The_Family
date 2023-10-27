@@ -57,7 +57,7 @@ public class PlayerAnimationManager : MonoBehaviour
             animator.SetBool("Climb", false);
             animator.SetBool("Hurt", false);
             animator.SetBool("Jump", false);
-
+            Debug.Log("#HI");
         }
 
     }

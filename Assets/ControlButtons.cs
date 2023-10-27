@@ -14,4 +14,8 @@ public class ControlButtons : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+    public void LoadTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
 }

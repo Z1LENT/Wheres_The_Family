@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour
     public float groundCheckDistance = 0.1f;
 
     [Header("Shoot")]
-    float flowerFireRate = 0.5f;
+    float flowerFireRate = 0.3f;
     float flowerTimer;
-    float vaseFireRate = 4f;
+    float vaseFireRate = 7.5f;
     float vaseTimer;
 
 
@@ -95,8 +95,8 @@ public class PlayerController : MonoBehaviour
             velocityX += horizontal * acceleration * Time.deltaTime;
             velocityX = Mathf.Clamp(velocityX, -speed, speed);
             
-            if(velocityX > 0.1 || velocityX < -0.1) { animationManager.SetAnimationToWalk(); }
-            else { animationManager.SetAnimationToIdle(); }
+            if((velocityX > 0.1 || velocityX < -0.1)) { animationManager.SetAnimationToWalk(); }
+            else if ((rb.velocity.y < 0.1 && rb.velocity.y > -0.1) && (rb.velocity.x < 0.1 && rb.velocity.x > -0.1)) { animationManager.SetAnimationToIdle(); }
 
             if(fallAnimationCounter > 20)
             {
@@ -115,15 +115,7 @@ public class PlayerController : MonoBehaviour
             velocityX *= 1 - deacceleration * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            speed = 10;
-        }
-        else
-        {
-            speed = 7;
-
-        }
+ 
 
         rb.velocity = new Vector2(velocityX, rb.velocity.y);
     }

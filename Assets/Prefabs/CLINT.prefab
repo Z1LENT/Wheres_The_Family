@@ -642,8 +642,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1168626405
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 786814e8f1831334195e11cfac30ed53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -773,12 +773,16 @@ PrefabInstance:
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -57.51499
+      value: -36.916348
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7356877
+      value: 9.380262
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: e19b7d5a726473146ac2f3e3ffb7807b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -957,12 +961,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18b01b96deb8324ea42d84ccd6968a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolDistance: 2
+  patrolDistance: 0.5
   speed: 3
-  doNotMove: 0
+  doNotMove: 1
   dir: 1
   peaceImage: {fileID: 3985729885060400183}
-  maxPeaceResistance: 3
+  maxPeaceResistance: 5
   bubbleCanvas: {fileID: 8287294113112493638}
   currentPatrolMode: 0
   peaceExplosion: {fileID: 1919522789973848567, guid: 5250659cdaf3c9d4982f4fd408181f0d, type: 3}
