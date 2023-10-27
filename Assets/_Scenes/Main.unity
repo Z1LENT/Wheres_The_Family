@@ -627,6 +627,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: patrolDistance
       value: 1
       objectReference: {fileID: 0}
@@ -26161,6 +26165,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: patrolDistance
       value: 0.5
       objectReference: {fileID: 0}
@@ -27336,7 +27344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8746637703690329322, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: doNotMove
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8746637703690329322, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: maxPeaceResistance
@@ -27502,6 +27510,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: patrolDistance
       value: 0.5
@@ -28393,6 +28405,10 @@ PrefabInstance:
       value: ROLAND (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -47
       objectReference: {fileID: 0}
@@ -28431,6 +28447,10 @@ PrefabInstance:
     - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746637703690329322, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
+      propertyPath: doNotMove
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8746637703690329322, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: maxPeaceResistance
@@ -28644,6 +28664,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.916348
@@ -29519,6 +29543,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: patrolDistance
       value: 0.5
@@ -30498,6 +30526,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: maxPeaceResistance
       value: 5
       objectReference: {fileID: 0}
@@ -30558,6 +30590,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: maxPeaceResistance
       value: 5
@@ -30824,6 +30860,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: patrolDistance
       value: 1

@@ -1025,6 +1025,10 @@ PrefabInstance:
       value: ROLAND (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60.5825
       objectReference: {fileID: 0}
@@ -1063,6 +1067,10 @@ PrefabInstance:
     - target: {fileID: 4555780351748419373, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8746637703690329322, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
+      propertyPath: doNotMove
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1448,6 +1456,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 46.205147
@@ -24074,6 +24086,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.545982
@@ -25821,7 +25837,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8746637703690329322, guid: c9aec0e72e267da45b3f29b03ecf09dd, type: 3}
       propertyPath: doNotMove
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25932,7 +25948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12.0258, y: 8.732}
+  m_AnchoredPosition: {x: 10.048, y: 6.71}
   m_SizeDelta: {x: 76.1995, y: 28.4703}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1402527085
@@ -26367,6 +26383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58.04972
@@ -27344,6 +27364,10 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: doNotMove
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 35.870705
@@ -27713,7 +27737,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27732,16 +27756,16 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 1250345731, guid: f5a4709d75d967f44bfe93e7619797a4, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 8
     m_Data: {fileID: 789839138, guid: f5a4709d75d967f44bfe93e7619797a4, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1250345731, guid: f5a4709d75d967f44bfe93e7619797a4, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 9
     m_Data:
@@ -27838,6 +27862,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 42363077472045287, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
       propertyPath: patrolDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5919199923978067981, guid: 3fe9b7eff6da7c84ea53205bb3c8dbb1, type: 3}
