@@ -254,7 +254,7 @@ MonoBehaviour:
   hitAudio: {fileID: 8389895908885033780}
   gameOverScreen: {fileID: 0}
   dead: 0
-  knockbackForce: 153
+  knockbackForce: 5
 --- !u!1 &3090425162708781280
 GameObject:
   m_ObjectHideFlags: 0
